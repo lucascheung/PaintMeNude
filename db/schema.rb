@@ -14,40 +14,4 @@ ActiveRecord::Schema.define(version: 2019_02_18_145115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "appointments", force: :cascade do |t|
-    t.datetime "appointment_date"
-    t.string "location"
-    t.bigint "nudie_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["nudie_id"], name: "index_appointments_on_nudie_id"
-    t.index ["user_id"], name: "index_appointments_on_user_id"
-  end
-
-  create_table "nudies", force: :cascade do |t|
-    t.integer "weight"
-    t.integer "price"
-    t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_nudies_on_user_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.integer "age"
-    t.string "gender"
-    t.string "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_foreign_key "appointments", "nudies", column: "nudie_id"
-  add_foreign_key "appointments", "users"
 end
