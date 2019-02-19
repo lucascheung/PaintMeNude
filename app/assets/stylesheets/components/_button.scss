@@ -1,0 +1,42 @@
+.btn-signup {
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  padding: 10px 80px;
+  &.btn-left {
+    border-right: none;
+    border-radius: 6px 0px 0px 6px;
+  }
+  &.btn-right {
+    border-left: none;
+    border-radius: 0px 6px 6px 0px;
+  }
+  transition: 0.3s ease all;
+  &:hover {
+    color: white;
+    &.btn-left {
+      border-right: none;
+      background-color: rgba(56,90,160,0.4);
+    }
+    &.btn-right {
+      border-left: none;
+      background-color: rgba(176,34,156, 0.4);
+    }
+  }
+  &:active {
+    color: white;
+    &.btn-left {
+      border-right: none;
+      background-color: rgba(56,90,160,0.8);
+    }
+    &.btn-right {
+      border-left: none;
+      background-color: rgba(176,34,156, 0.8);
+    }
+  }
+}
+
+
+.button-group {
+  display: flex;
+}
