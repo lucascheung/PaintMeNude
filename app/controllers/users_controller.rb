@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @nudie = @user.nudie
   end
 
   def new

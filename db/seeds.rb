@@ -57,11 +57,11 @@ end
   appointment.save
 end
 
-lucas = User.create(username: "lucas", email:"lucas@gmail.com", password: 111111)
+lucas = User.create(username: "lucas", first_name: "Lucas", last_name:"Cheung", location:"London", gender: "Male", age: 25, email:"lucas@gmail.com", password: 111111)
 lucas_n = Nudie.create(weight:78, price:8000, description: "I'm sexy and I know it", user:lucas)
 lucas.admin = true
 
-kristian = User.create(username: "kristian", email:"kristian@gmail.com", password: 111111)
+kristian = User.create(username: "kristian", first_name: "Kristian", last_name:"Soelling", location:"Copenhagen", gender: "Male", age: 27, email:"kristian@gmail.com", password: 111111)
 kristian_n = Nudie.create(weight:200, price:8000, description: "Looking to make a quick buck", user:kristian)
 kristian.admin = true
 
