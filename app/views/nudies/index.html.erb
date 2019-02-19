@@ -1,5 +1,19 @@
-<h1>Nudies</h1>
-<% @nudies.each do |nudie| %>
-  <%= link_to(nudie.user.first_name, nudy_path(nudie)) %>
-<% end %>
+<div class="navbar_placeholder"></div>
+<div class="index-container">
+  <h1>Canvases</h1>
+  <div class="card-container">
+    <div class="row">
+      <% @nudies.each do |nudie| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="card">
+            <div class="card-photo"></div>
+            <div class="card-content">
+               <%= link_to(nudie.user.first_name, nudy_path(nudie)) %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
