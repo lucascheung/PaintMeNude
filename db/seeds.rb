@@ -48,16 +48,24 @@ end
   fifth_painter = User.find(10)
 
   first_nudie = Nudie.find(1)
-  second_painter = User.find(4)
-  third_painter = User.find(6)
-  fourth_painter = User.find(8)
-  fifth_painter = User.find(10)
+  second_nudie = Nudie.find(3)
+  third_nudie = Nudie.find(5)
+  fourth_nudie = Nudie.find(7)
+  fifth_nudie = Nudie.find(9)
 
   location = Faker::Address.street_address
   appointment_date = Faker::Date.between(2.days.ago, Date.today)
   appointment = Appointment.new(location:location, appointment_date:appointment_date, user:first_painter, nudie:first_nudie)
   appointment.save
 end
+
+lucas = User.create(username: "lucas", email:"lucas@gmail.com", password: 111111)
+lucas_n = Nudie.create(weight:78, price:8000, description: "I'm sexy and I know it", user:lucas)
+lucas.admin = true
+
+kristian = User.create(username: "kristian", email:"kristian@gmail.com", password: 111111)
+kristian_n = Nudie.create(weight:200, price:8000, description: "Looking to make a quick buck", user:kristian)
+kristian.admin = true
 
 # Kristian's test code for assigning nudies to users automatically
 # User.all.each_with_index do |idx_user|
