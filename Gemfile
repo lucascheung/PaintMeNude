@@ -17,6 +17,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
 gem 'faker', '~> 1.9.3'
+gem 'pundit'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
