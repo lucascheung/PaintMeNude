@@ -1,4 +1,5 @@
 <h1>Nudies</h1>
 <% @nudies.each do |nudie| %>
-  <%= nudie.user.first_name %>
+  <%= link_to(nudie.user.first_name, nudy_path(nudie)) %>
 <% end %>
+
