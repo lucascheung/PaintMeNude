@@ -1,0 +1,16 @@
+.nudie-card {
+  margin: 5px 2px;
+  position: relative;
+}
+
+.nudie-card-photo {
+  width: 250px;
+  height: 300px;
+}
+
+.nudie-card-content {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  color: $light-gray;
+}
