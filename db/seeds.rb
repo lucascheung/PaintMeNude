@@ -32,9 +32,7 @@ Appointment.destroy_all
   new_user.gender = gender
   new_user.age = age
   new_user.save
-
-  nude = rand(0..1)
-  if nude == 1
+  if idx.even?
     new_nudie = Nudie.new(weight:weight, price:price, description:description, user:new_user)
     new_nudie.save
   end
@@ -51,7 +49,7 @@ end
   second_nudie = Nudie.find(3)
   third_nudie = Nudie.find(5)
   fourth_nudie = Nudie.find(7)
-  fifth_nudie = Nudie.find(9)
+  fifth_nudie = Nudie.find(4)
 
   location = Faker::Address.street_address
   appointment_date = Faker::Date.between(2.days.ago, Date.today)
