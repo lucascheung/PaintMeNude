@@ -7,12 +7,13 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%#= stylesheet_pack_tag 'application', media: 'all' %>
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
   <body>
     <%= render 'shared/navbar' %>
     <div class="navbar_placeholder"></div>
     <%= render 'shared/flashes' %>
+    <div class="wrapper" style="background: url('<%= image_url "background.jpg"%>') no-repeat center center fixed;"></div>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
