@@ -9,7 +9,7 @@
     <h2 style="margin: 0;">About me:</h2>
     <p><%= @nudie.description %></p>
     <div class="paint-btn-container">
-      <%= link_to "Paint me", nudies_path, class:"btn-paint" %>
+      <%= link_to "Paint me", new_nudy_appointment_path(@nudie), class:"btn-paint" %>
     </div>
   </div>
   <div class="imageHolder"><%= image_tag "arnold.jpg", alt: "alttext" %>
