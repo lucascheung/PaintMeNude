@@ -14,10 +14,14 @@ class AppointmentsController < ApplicationController
 
 
   def create
-    @appointment = Appointment.find(set_appointment)
-    @appointment.user_id = current_user.id
-    @appointment.nudy_id = Nudie.find(params[:nudy_id])
-    @appointment.save
+    @appointment = Appointment.new(appointment_params)
+    @appointment.user = current_user
+    @appointment.nudie = Nudie.find(params[:nudy_id])
+    if @appointment.save
+      redirect_to nudies_path
+    else
+      render :new
+    end
     authorize @appointment
   end
 

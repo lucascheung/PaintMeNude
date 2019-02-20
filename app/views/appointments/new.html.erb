@@ -1,10 +1,8 @@
-<!--<p>Price: <%#= @nudie.price %></p>-->
-
 <div class="form-container">
-  <%= simple_form_for(@appointment, method: :post, url: nudy_appointments_path(@nudie)) do |f| %>
+  <h3 class="text-center">Price per experience: <b><%= @nudie.price %></b></h3>
+  <%= simple_form_for([@nudie, @appointment]) do |f| %>
     <%= f.input :location %>
-    <%= f.input :appointment_date %>
-    <%= f.submit "Create booking", class: "btn btn-primary" %>
+   <%= f.input :appointment_date, as: :string, input_html: {class: "datepicker"} %>
+    <%= f.button :submit, "Request booking", class: "btn btn-primary" %>
   <% end %>
 </div>
-
