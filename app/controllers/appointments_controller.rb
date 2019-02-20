@@ -8,19 +8,24 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
+    @nudie = Nudie.find(params[:nudy_id])
+    authorize @appointment
   end
+
 
   def create
     @appointment = Appointment.find(set_appointment)
     @appointment.user_id = current_user.id
     @appointment.nudy_id = Nudie.find(params[:nudy_id])
     @appointment.save
+    authorize @appointment
   end
 
   private
 
   def set_appointment
     @appointment = Appointment.find(params[:id])
+    authorize @appointment
   end
 
   def appointment_params

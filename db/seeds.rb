@@ -18,7 +18,7 @@ Appointment.destroy_all
   email = Faker::Internet.email
   location = Faker::Address.street_address
   gender = Faker::Gender.binary_type
-  age = rand(18...50)
+  age = rand(18...35)
   username = Faker::Hipster.word + "_" + Faker::Hipster.word + rand(1..99).to_s
   weight = rand(40..99)
   price = rand(0..200)

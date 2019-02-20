@@ -1,9 +1,10 @@
 <!--<p>Price: <%#= @nudie.price %></p>-->
-<div class="form_container">
-<%= simple_form_for([current_user, @nudie, @appointment]) do |f| %>
-  <%= f.input :location %>
-  <%= f.input :appointment_date %>
-  <%= f.submit "Create booking", class: "btn btn-primary" %>
-<% end %>
+
+<div class="form-container">
+  <%= simple_form_for(@appointment, method: :post, url: nudy_appointments_path(@nudie)) do |f| %>
+    <%= f.input :location %>
+    <%= f.input :appointment_date %>
+    <%= f.submit "Create booking", class: "btn btn-primary" %>
+  <% end %>
 </div>
 

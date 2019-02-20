@@ -15,6 +15,11 @@ class NudiesController < ApplicationController
       authorize @nudie
   end
 
+  def create
+      @nudie = Nudie.new(nudie_params)
+      authorize @nudie
+  end
+
   def edit
   end
 
