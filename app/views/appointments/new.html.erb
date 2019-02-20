@@ -1,0 +1,8 @@
+<!--<p>Price: <%#= @nudie.price %></p>-->
+<div class="form_container">
+<%= simple_form_for [@appointment] do |f| %>
+  <%= f.input :location %>
+  <%= f.input :appointment_date %>
+  <%= f.submit "Create booking", class: "btn btn-primary" %>
+<% end %>
+</div>
