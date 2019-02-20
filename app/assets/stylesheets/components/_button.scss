@@ -40,3 +40,18 @@
 .button-group {
   display: flex;
 }
+
+.btn-paint {
+  color: white;
+  border: 2px solid $red;
+  padding: 10px 50px;
+  text-decoration: none;
+  border-radius: 5px;
+  background-color: $red;
+  &:hover {
+    color: $red;
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+}

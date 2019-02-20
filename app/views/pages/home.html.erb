@@ -6,7 +6,7 @@
   <div class="banner-btn">
      <div class="button-group">
       <%= link_to "I'm a painter", nudies_path, class:'btn btn-signup btn-left'%>
-      <%= link_to "I'm a canvas", new_user_registration_path, class:'btn btn-signup btn-right'%>
+      <%= link_to "I'm a canvas", user_signed_in? ? user_path(current_user) : new_user_registration_path, class:'btn btn-signup btn-right'%>
     </div>
   </div>
 </div>
