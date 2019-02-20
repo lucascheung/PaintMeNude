@@ -3,7 +3,13 @@ class NudiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @nudies = policy_scope(Nudie).order(created_at: :desc)
+    @nudies = policy_scope(Nudie)
+    @markers = @nudies.map do |nudie|
+      {
+        lng: nudie.user.longitude,
+        lat: nudie.user.latitude
+      }
+    end
   end
 
   def show
