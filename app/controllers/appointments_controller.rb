@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show]
-  skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:new]
 
   def show
     @appointment = current_user.appointments

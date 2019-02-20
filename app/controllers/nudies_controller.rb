@@ -1,6 +1,6 @@
 class NudiesController < ApplicationController
   before_action :set_nudie, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @nudies = policy_scope(Nudie).order(created_at: :desc)
