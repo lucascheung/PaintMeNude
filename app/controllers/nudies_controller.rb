@@ -11,7 +11,8 @@ class NudiesController < ApplicationController
   end
 
   def new
-    @nudie = Nudie.new()
+      @nudie = Nudie.new
+      authorize @nudie
   end
 
   def edit
@@ -38,6 +39,6 @@ class NudiesController < ApplicationController
   end
 
   def nudie_params
-    params.require(:nudie).permit(:weight, :price, :description)
+    params.require(:nudie).permit(:weight, :price, :description, :photo)
   end
 end
