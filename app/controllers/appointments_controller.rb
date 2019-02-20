@@ -13,7 +13,7 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.find(set_appointment)
     @appointment.user_id = current_user.id
-    @appointment.nudy_id = @nudie.id
+    @appointment.nudy_id = Nudie.find(params[:nudy_id])
     @appointment.save
   end
 
