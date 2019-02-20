@@ -1,5 +1,18 @@
-<div class="show-container">
-  <h1><%= "#{@user.first_name} #{@user.last_name}" %> </h1>
+<div class="form-container">
+  <% if !@user.first_name.present? && !@user.last_name.present? %>
+    <h2>Please fill in your personal information</h2>
+  <% end %>
+
+  <%= @user.first_name %>
+  <%= @user.last_name %>
+  <%= @user.location %>
+  <%= @user.age %>
+  <%= @user.gender %>
+
+  <%= @user.nudie.appointments %>
+  <%= @nudie.user.appointments %>
 
 
+  <%= link_to "Create profile", edit_user_registration_path, class:'btn btn-dark'%>
+  <%= link_to "I'm a nudie too", new_nudy_path, class:'btn btn-dark'%>
 </div>

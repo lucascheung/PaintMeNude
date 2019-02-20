@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   root to: 'pages#home'
   resources :nudies, only: [:new, :create, :index, :destroy, :show]
   resources :users, only: [:new, :create, :index, :destroy, :show]
