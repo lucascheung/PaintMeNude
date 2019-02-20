@@ -1,10 +1,11 @@
+<div class="wrapper" style="background: url('<%= image_url "background.jpg"%>') no-repeat center center fixed;"></div>
 <div class="profile">
   <h1> <%= "#{@nudie.user.first_name} #{@nudie.user.last_name}" %></h1>
   <div class="infoHolder">
     <h2>Age: <%= @nudie.user.age %></h2>
     <h2>Gender: <%= @nudie.user.gender %></h2>
-    <h2>Weight: <%= @nudie.weight %></h2>
-    <h2>Price: <%= @nudie.price %></h2>
+    <h2>Weight: <%= @nudie.weight %>KG</h2>
+    <h2>Price: $<%= @nudie.price %></h2>
     <h2>Location: <%= @nudie.user.location %></h2>
     <h2 style="margin: 0;">About me:</h2>
     <p><%= @nudie.description %></p>

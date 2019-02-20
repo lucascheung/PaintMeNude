@@ -43,15 +43,16 @@
 
 .btn-paint {
   color: white;
-  border: 2px solid $red;
+  border: 2px solid #ad0f03;
   padding: 10px 50px;
   text-decoration: none;
   border-radius: 5px;
-  background-color: $red;
+  background-color: #ad0f03;
   &:hover {
-    color: $red;
-    background-color: transparent;
+    color: white;
+    background-color: #e63123;
     text-decoration: none;
+    border: 2px solid #e63123;
   }
 
 }
