@@ -1,5 +1,17 @@
-<div class="show-container">
-  <h1><%= "#{@nudie.user.first_name} #{@nudie.user.last_name}" %> </h1>
-
-
+<div class="profile">
+  <h1> <%= "#{@nudie.user.first_name} #{@nudie.user.last_name}" %></h1>
+  <div class="infoHolder">
+    <h2>Age: <%= @nudie.user.age %></h2>
+    <h2>Gender: <%= @nudie.user.gender %></h2>
+    <h2>Weight: <%= @nudie.weight %></h2>
+    <h2>Price: <%= @nudie.price %></h2>
+    <h2>Location: <%= @nudie.user.location %></h2>
+    <h2 style="margin: 0;">About me:</h2>
+    <p><%= @nudie.description %></p>
+    <div class="paint-btn-container">
+      <%= link_to "Paint me", nudies_path, class:"btn-paint" %>
+    </div>
+  </div>
+  <div class="imageHolder"><%= image_tag "arnold.jpg", alt: "alttext" %>
 </div>
+
