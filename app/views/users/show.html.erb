@@ -1,55 +1,31 @@
 <div class="wrapper" style="background: url('<%= image_url "background.jpg"%>') no-repeat center center fixed;"></div>
-<div class="show-container">
-  <% if !@user.first_name.present? || !@user.last_name.present? %>
-    <h2>Please fill in your personal information</h2>
-  <% end %>
-
-  <h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
-    <%= cl_image_tag @user.photo, alt: "alttext", class:"user-propic"%>
- <div class="show-profile-text">
-    <b><%= @user.location%></b>
-    <p><%= @user.age %></p>
-    <p><%= @user.gender %></p>
- </div>
-
-  <h3>You are painting</h3>
-  <table style="width:100%">
-    <tr>
-      <th>Canvas</th>
-      <th>Date</th>
-      <th>Location</th>
-    </tr>
-    <%@user.appointments.each do |appointment| %>
-        <tr>
-          <td><%= appointment.nudie.user.first_name %></td>
-          <td><%= appointment.appointment_date.strftime("%d %B") %></td>
-          <td><%= appointment.location %></td>
-          <td><%= link_to 'Cancel', nudy_appointment_path(appointment.nudie_id, appointment), :method => 'delete'%></td>
-        </tr>
+  <div class="show-container">
+    <% if !@user.first_name.present? || !@user.last_name.present? %>
+      <h2>Please fill in your personal information</h2>
     <% end %>
-  </table>
 
-  <h3>You are being painted by</h3>
-  <table style="width:100%">
-    <tr>
-      <th>Painter</th>
-      <th>Date</th>
-      <th>Location</th>
-    </tr>
-    <%@user.appointments.each do |appointment| %>
-      <% if appointment.nudie.user == current_user %>
-        <tr>
-          <td><%= appointment.nudie.user.first_name %></td>
-          <td><%= appointment.appointment_date.strftime("%d %B") %></td>
-          <td><%= appointment.location %></td>
-          <td><%= link_to 'Cancel', nudy_appointment_path(appointment.nudie_id, appointment), :method => 'delete'%></td>
-        </tr>
-      <% end %>
+    <h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
+      <%= cl_image_tag @user.photo, alt: "alttext", class:"user-propic"%>
+    <div class="show-profile-text">
+      <p><%= @user.location%></p>
+      <p><%= @user.age %></p>
+      <p><%= @user.gender %></p>
+    </div>
+
+    <% if @user.appointments.present? && @user.nudie.appointments.present? %>
+      <%= render 'painter_show' %>
+      <%= render 'canvas_show' %>
+    <% elsif @user.nudie.appointments.present? %>
+      <%= render 'canvas_show' %>
+    <% elsif @user.appointments.present? %>
+      <%= render 'painter_show' %>
+    <% else %>
+      <h3>You have no upcomming appointments</h3>
     <% end %>
-  </table>
 
-  <div class="show-btn-bottom">
-    <%= link_to "Edit profile", edit_user_registration_path, class:'btn btn-primary'%>
-    <%= link_to "I'm a nudie too", new_nudy_path, class:'btn btn-primary'%>
+    <div class="show-btn-bottom">
+      <%= link_to "Edit profile", edit_user_registration_path, class:'btn btn-primary'%>
+      <%= link_to "I'm a nudie too", new_nudy_path, class:'btn btn-primary'%>
+    </div>
   </div>
 </div>
