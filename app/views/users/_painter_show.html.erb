@@ -1,0 +1,16 @@
+<h3>You are painting</h3>
+<table style="width:100%">
+  <tr>
+    <th>Canvas</th>
+    <th>Date</th>
+    <th>Location</th>
+  </tr>
+  <%@user.appointments.each do |appointment| %>
+    <tr>
+      <td><%= appointment.nudie.user.first_name %></td>
+      <td><%= appointment.appointment_date.strftime("%d %B") %></td>
+      <td><%= appointment.location %></td>
+      <td><%= link_to 'Cancel', nudy_appointment_path(appointment.nudie_id, appointment), :method => 'delete'%></td>
+    </tr>
+  <% end %>
+</table>
