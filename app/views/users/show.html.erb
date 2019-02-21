@@ -1,17 +1,21 @@
 <div class="wrapper" style="background: url('<%= image_url "background.jpg"%>') no-repeat center center fixed;"></div>
 
 <div class="show-container">
-  <% if !@user.first_name.present? || !@user.last_name.present? %>
-    <h2>Please fill in your personal information</h2>
-  <% end %>
+  <div class="profile-container">
+    <% if !@user.first_name.present? || !@user.last_name.present? %>
+      <h2>Please fill in your personal information</h2>
+    <% end %>
 
     <h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
-      <%= cl_image_tag @user.photo, alt: "alttext", class:"user-propic"%>
-    <div class="show-profile-text">
-      <p><%= @user.location%></p>
-      <p><%= @user.age %></p>
-      <p><%= @user.gender %></p>
+    <div class="profile-content">
+      <%= cl_image_tag @user.photo.url(:show_profile), alt: "alttext"%>
+      <div class="show-profile-text">
+        <h2><%= @user.location%></h2>
+        <h2><%= @user.age %></h2>
+        <h2><%= @user.gender %></h2>
+      </div>
     </div>
+  </div>
 
     <%= link_to "Edit profile", edit_user_registration_path, class:'btn btn-primary'%>
 
