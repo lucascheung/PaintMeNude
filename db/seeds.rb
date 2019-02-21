@@ -7,9 +7,9 @@
 #   Character.create!(name: 'Luke', movie: movies.first)
 require 'faker'
 
-User.destroy_all
-Nudie.destroy_all
 Appointment.destroy_all
+Nudie.destroy_all
+User.destroy_all
 
 
 9.times.each_with_index do |idx|
