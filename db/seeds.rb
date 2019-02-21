@@ -24,7 +24,7 @@ Appointment.destroy_all
   price = rand(0..200)
   description = Faker::Quote.most_interesting_man_in_the_world.gsub("HIS", "HER").gsub("He", "She").gsub(" he", " she").gsub("his", "her").gsub("His", "Her")
   password = 100000
-  url = "https://res.cloudinary.com/dcteumtl0/image/upload/v1550752670/hotgirl#{idx+1}.jpg"
+  url = "https://res.cloudinary.com/dcteumtl0/image/upload/v1550763608/hotgirl#{idx+1}.jpg"
   new_user = User.new(username:username, email:email, password:password)
   new_user.first_name = first_name
   new_user.last_name = last_name
@@ -48,7 +48,7 @@ end
   price = rand(0..200)
   description = Faker::Quote.most_interesting_man_in_the_world
   password = 100000
-  url = "https://res.cloudinary.com/dcteumtl0/image/upload/v1550752670/hotguy#{idx+1}.jpg"
+  url = "https://res.cloudinary.com/dcteumtl0/image/upload/v1550763608/hotguy#{idx+1}.jpg"
   new_user = User.new(username:username, email:email, password:password)
   new_user.first_name = first_name
   new_user.last_name = last_name
@@ -75,7 +75,7 @@ lucas.admin = true
 lucas.save
 
 kristian = User.create(username: "kristian", first_name: "Kristian", last_name:"Soelling", location:"Copenhagen", gender: "Male", age: 27, email:"kristian@gmail.com", password: 111111)
-kristian.remote_photo_url = "https://res.cloudinary.com/dcteumtl0/image/upload/v1550591281/govlbkkcdcey3e9zbnif.jpg"
+kristian.remote_photo_url = "https://res.cloudinary.com/dcteumtl0/image/upload/v1550591281/kristian.jpg"
 kristian_n = Nudie.create(weight:200, price:8000, description: "Looking to make a quick buck", user:kristian)
 kristian.admin = true
 kristian.save
