@@ -1,8 +1,9 @@
 <div class="wrapper" style="background: url('<%= image_url "background.jpg"%>') no-repeat center center fixed;"></div>
-  <div class="show-container">
-    <% if !@user.first_name.present? || !@user.last_name.present? %>
-      <h2>Please fill in your personal information</h2>
-    <% end %>
+
+<div class="show-container">
+  <% if !@user.first_name.present? || !@user.last_name.present? %>
+    <h2>Please fill in your personal information</h2>
+  <% end %>
 
     <h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
       <%= cl_image_tag @user.photo, alt: "alttext", class:"user-propic"%>

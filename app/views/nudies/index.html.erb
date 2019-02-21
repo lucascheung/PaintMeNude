@@ -1,28 +1,22 @@
 <div class="wrapper" style="background: url('<%= image_url "background.jpg"%>') no-repeat center center fixed;"></div>
-<div class="index-container">
-  <h1>Canvases</h1>
-  <div class="card-container">
-    <div class="row">
-      <% @nudies.each do |nudie| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <%= link_to nudy_path(nudie) do %>
-            <div class="nudie-card">
-              <div class="nudie-card-photo" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 80%, rgba(0,0,0,0.8) 100%), url('<%= image_url "arnold.jpg"%>')"></div>
-              <div class="nudie-card-content">
-                <%= "#{nudie.user.first_name}, #{nudie.user.age}" %>
+<div class="index-main">
+  <div class="index-container">
+    <h1>Canvases</h1>
+    <div class="card-container">
+      <div class="row">
+        <% @nudies.each do |nudie| %>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <%= link_to nudy_path(nudie) do %>
+              <div class="nudie-card">
+                <div class="nudie-card-photo" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 80%, rgba(0,0,0,0.8) 100%), url(<%= cl_image_path nudie.user.photo.url(:index_profile) %>);"></div>
+                <div class="nudie-card-content">
+                  <%= "#{nudie.user.first_name}, #{nudie.user.age}" %>
+                </div>
               </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
-
-<div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
