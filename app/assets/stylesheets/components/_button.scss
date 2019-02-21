@@ -1,7 +1,7 @@
 .btn-signup {
   color: white;
-  background-color: transparent;
-  border: 1px solid white;
+  background-color: rgba(255,240,240,0.15);
+  border: 2px solid $light-gray;
   padding: 10px 80px;
   &.btn-left {
     border-right: none;

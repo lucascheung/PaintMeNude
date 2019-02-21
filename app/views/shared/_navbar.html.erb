@@ -10,6 +10,7 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+      <%= link_to "About", about_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Canvases", nudies_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
@@ -37,6 +38,8 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
+      <%= link_to "About", about_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Canvases", nudies_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>

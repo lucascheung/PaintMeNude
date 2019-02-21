@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: "registrations" }
   root to: 'pages#home'
+  get 'about', to: 'pages#about'
   resources :nudies, only: [:new, :create, :index, :destroy, :show] do
     resources :appointments, only: [:new, :create, :index, :destroy, :show]
   end
