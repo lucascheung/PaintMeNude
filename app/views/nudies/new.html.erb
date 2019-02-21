@@ -1,13 +1,11 @@
-<div class="navbar_placeholder"></div>
 <div class="form-container">
-<%= simple_form_for [@nudie] do |f| %>
-  <%= f.association :ingredient, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
+  <h2>Create your Nudie profile</h2>
+  <%= simple_form_for [@nudie] do |f| %>
   <%= f.input :description %>
   <%= f.input :weight %>
   <%= f.input :price %>
   <%= f.input :photo, required: true, autofocus: true %>
-  <%= f.input :photo, required: false, autofocus: true %>
   <%= f.input :photo_cache, as: :hidden %>
-  <%= f.button :submit, class: "btn btn-secondary" %>
-<% end %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
 </div>
