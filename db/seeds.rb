@@ -11,6 +11,7 @@ Appointment.destroy_all
 Nudie.destroy_all
 User.destroy_all
 
+all_users = []
 
 9.times.each_with_index do |idx|
   first_name = Faker::Name.female_first_name
@@ -33,6 +34,7 @@ User.destroy_all
   new_user.age = age
   new_user.remote_photo_url = url
   new_user.save!
+  all_users << new_user
   new_nudie = Nudie.create!(user: new_user, weight: weight, price:price, description:description)
 end
 
@@ -57,6 +59,7 @@ end
   new_user.age = age
   new_user.remote_photo_url = url
   new_user.save!
+  all_users << new_user
   new_nudie = Nudie.create!(user: new_user, weight: weight, price:price, description:description)
 end
 
@@ -64,7 +67,7 @@ end
 5.times.each_with_index do |idx|
   location = Faker::Address.street_address
   appointment_date = Faker::Date.between(2.days.ago, Date.today)
-  appointment = Appointment.new(location:location, appointment_date:appointment_date, user:User.find(idx+8), nudie:Nudie.find(idx+1))
+  appointment = Appointment.new(location:location, appointment_date:appointment_date, user:all_users[idx+8], nudie:all_users[idx+1].nudie)
   appointment.save!
 end
 
