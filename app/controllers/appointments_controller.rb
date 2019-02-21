@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-  before_action :set_appointment, only: [:show]
+  before_action :set_appointment, only: [:show, :destroy]
   skip_before_action :authenticate_user!, only: [:new]
 
   def show
@@ -23,6 +23,13 @@ class AppointmentsController < ApplicationController
       render :new
     end
     authorize @appointment
+  end
+
+  def destroy
+    # @appointment = Appointment.find(params[:nudy_id])
+    # authorize @appointment
+    @appointment.destroy
+    redirect_to user_path(current_user.id)
   end
 
   private
