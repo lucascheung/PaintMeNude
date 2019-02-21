@@ -23,7 +23,11 @@ class NudiesController < ApplicationController
 
   def create
       @nudie = Nudie.new(nudie_params)
+      @user = current_user
+      @nudie.user = @user
+      @nudie.save
       authorize @nudie
+      redirect_to user_path(@user)
   end
 
   def edit
