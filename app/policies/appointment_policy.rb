@@ -13,6 +13,10 @@ class AppointmentPolicy < ApplicationPolicy
     return true
   end
 
+  def destroy?
+    return true
+  end
+
   private
 
   def current_user_or_admin?

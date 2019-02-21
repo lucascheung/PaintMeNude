@@ -6,20 +6,50 @@
 
   <h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
   <%= cl_image_tag @user.photo.url(:show_profile), alt: "alttext", class:"user-propic"%>
-  <%= @user.location %>
-  <%= @user.age %>
-  <%= @user.gender %>
+  <div class="show-profile-text">
+    <b><%= @user.location%></b>
+    <p><%= @user.age %></p>
+    <p><%= @user.gender %></p>
+  </div>
 
-  <ul>
+  <h3>You are painting</h3>
+  <table style="width:100%">
+    <tr>
+      <th>Canvas</th>
+      <th>Date</th>
+      <th>Location</th>
+    </tr>
     <%@user.appointments.each do |appointment| %>
-      <li>
-        <%= appointment.nudie.user.first_name %>
-        <%= appointment.appointment_date %>
-      </li>
+        <tr>
+          <td><%= appointment.nudie.user.first_name %></td>
+          <td><%= appointment.appointment_date.strftime("%d %B") %></td>
+          <td><%= appointment.location %></td>
+          <td><%= link_to 'Cancel', nudy_appointment_path(appointment.nudie_id, appointment), :method => 'delete'%></td>
+        </tr>
     <% end %>
-  </ul>
+  </table>
 
+  <h3>You are being painted by</h3>
+  <table style="width:100%">
+    <tr>
+      <th>Painter</th>
+      <th>Date</th>
+      <th>Location</th>
+    </tr>
+    <%@user.appointments.each do |appointment| %>
+      <% if appointment.nudie.user == current_user %>
+        <tr>
+          <td><%= appointment.nudie.user.first_name %></td>
+          <td><%= appointment.appointment_date.strftime("%d %B") %></td>
+          <td><%= appointment.location %></td>
+          <td><%= link_to 'Cancel', nudy_appointment_path(appointment.nudie_id, appointment), :method => 'delete'%></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
 
-  <%= link_to "Edit profile", edit_user_registration_path, class:'btn btn-dark'%>
-  <%= link_to "I'm a nudie too", new_nudy_path, class:'btn btn-dark'%>
+  <div class="show-btn-bottom">
+    <%= link_to "Edit profile", edit_user_registration_path, class:'btn btn-primary'%>
+    <%= link_to "I'm a nudie too", new_nudy_path, class:'btn btn-primary'%>
+  </div>
 </div>
