@@ -5,12 +5,12 @@
   <% end %>
 
   <h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
-    <%= cl_image_tag @user.photo, alt: "alttext", class:"user-propic"%>
- <div class="show-profile-text">
+  <%= cl_image_tag @user.photo.url(:show_profile), alt: "alttext", class:"user-propic"%>
+  <div class="show-profile-text">
     <b><%= @user.location%></b>
     <p><%= @user.age %></p>
     <p><%= @user.gender %></p>
- </div>
+  </div>
 
   <h3>You are painting</h3>
   <table style="width:100%">

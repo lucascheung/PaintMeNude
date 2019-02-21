@@ -1,6 +1,13 @@
 .nudie-card {
   margin: 5px 2px;
   position: relative;
+  border: 5px solid white;
+  width: 260px;
+  transition: 0.2s ease all;
+  &:hover {
+    transform: translateY(-5px)
+  }
+
 }
 
 .nudie-card-photo {
