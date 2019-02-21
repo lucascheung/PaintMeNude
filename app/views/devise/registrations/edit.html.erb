@@ -10,10 +10,10 @@
       <%= f.input :email, required: true, autofocus: true %>
       <%= f.input :first_name, required: true, autofocus: true %>
       <%= f.input :last_name, required: true, autofocus: true %>
-      <%= f.input :location, required: true, autofocus: true %>
-      <%= f.input :age, required: true, autofocus: true %>
-      <%= f.input :gender, required: true, autofocus: true %>
-      <%= f.input :photo, required: false, autofocus: true %>
+      <%= f.input :location, required: false, autofocus: true %>
+      <%= f.input :age, required: false, autofocus: true %>
+      <%= f.input :gender, required: false, autofocus: true %>
+      <%= f.input :photo, required: true, autofocus: true %>
       <%= f.input :photo_cache, as: :hidden %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

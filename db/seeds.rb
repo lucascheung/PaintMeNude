@@ -1,10 +1,10 @@
 # This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+# The data can then be loaded with the rails db:seed command (or create!d alongside the database with db:setup).
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#   movies = Movie.create!([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create!(name: 'Luke', movie: movies.first)
 require 'faker'
 
 User.destroy_all
@@ -32,8 +32,8 @@ Appointment.destroy_all
   new_user.gender = gender
   new_user.age = age
   new_user.remote_photo_url = url
-  new_user.save
-  new_nudie = Nudie.create(user: new_user, weight: weight, price:price, description:description)
+  new_user.save!
+  new_nudie = Nudie.create!(user: new_user, weight: weight, price:price, description:description)
 end
 
 6.times.each_with_index do |idx|
@@ -56,8 +56,8 @@ end
   new_user.gender = gender
   new_user.age = age
   new_user.remote_photo_url = url
-  new_user.save
-  new_nudie = Nudie.create(user: new_user, weight: weight, price:price, description:description)
+  new_user.save!
+  new_nudie = Nudie.create!(user: new_user, weight: weight, price:price, description:description)
 end
 
 
@@ -65,25 +65,25 @@ end
   location = Faker::Address.street_address
   appointment_date = Faker::Date.between(2.days.ago, Date.today)
   appointment = Appointment.new(location:location, appointment_date:appointment_date, user:User.find(idx+8), nudie:Nudie.find(idx+1))
-  appointment.save
+  appointment.save!
 end
 
-lucas = User.create(username: "lucas", first_name: "Lucas", last_name:"Cheung", location:"London", gender: "Male", age: 25, email:"lucas@gmail.com", password: 111111)
+lucas = User.create!(username: "lucas", first_name: "Lucas", last_name:"Cheung", location:"London", gender: "Male", age: 25, email:"lucas@gmail.com", password: 111111)
 lucas.remote_photo_url = "https://res.cloudinary.com/dcteumtl0/image/upload/v1550753543/arnold.jpg"
-lucas_n = Nudie.create(weight:78, price:8000, description: "I fear not the man who has practiced 10,000 kicks once, but I fear the man who has practiced one kick 10,000 times.", user:lucas)
+lucas_n = Nudie.create!(weight:78, price:8000, description: "I fear not the man who has practiced 10,000 kicks once, but I fear the man who has practiced one kick 10,000 times.", user:lucas)
 lucas.admin = true
-lucas.save
+lucas.save!
 
-kristian = User.create(username: "kristian", first_name: "Kristian", last_name:"Soelling", location:"Copenhagen", gender: "Male", age: 27, email:"kristian@gmail.com", password: 111111)
+kristian = User.create!(username: "kristian", first_name: "Kristian", last_name:"Soelling", location:"Copenhagen", gender: "Male", age: 27, email:"kristian@gmail.com", password: 111111)
 kristian.remote_photo_url = "https://res.cloudinary.com/dcteumtl0/image/upload/v1550591281/kristian.jpg"
-kristian_n = Nudie.create(weight:200, price:8000, description: "Looking to make a quick buck", user:kristian)
+kristian_n = Nudie.create!(weight:200, price:8000, description: "Looking to make a quick buck", user:kristian)
 kristian.admin = true
-kristian.save
+kristian.save!
 
-max = User.create(username: "max", first_name: "Max", last_name:"Glasmacher", location:"Berlin", gender: "Male", age: 18, email:"max@gmail.com", password: 111111)
+max = User.create!(username: "max", first_name: "Max", last_name:"Glasmacher", location:"Berlin", gender: "Male", age: 18, email:"max@gmail.com", password: 111111)
 max.remote_photo_url = "https://res.cloudinary.com/dcteumtl0/image/upload/v1550591281/max.jpg"
-max.save
-max_n = Nudie.create(weight:200, price:8000, description: "Please bring tweezers for managing my sensitive genitals", user:max)
+max.save!
+max_n = Nudie.create!(weight:200, price:8000, description: "Please bring tweezers for managing my sensitive genitals", user:max)
 
 # Kristian's test code for assigning nudies to users automatically
 # User.all.each_with_index do |idx_user|
@@ -91,6 +91,6 @@ max_n = Nudie.create(weight:200, price:8000, description: "Please bring tweezers
 #     location = Faker::Address.street_address
 #     appointment_date = Faker::Date.between(2.days.ago, Date.today)
 #     idx_user == idx_nudie ? false : appointment = Appointment.new(location:location, appointment_date:appointment_date, user:idx_user, nudie:idx_nudie)
-#     appointment.save
+#     appointment.save!
 #   end
 # end
