@@ -1,11 +1,9 @@
 <div class="form-container">
   <h2>Create your Nudie profile</h2>
   <%= simple_form_for [@nudie] do |f| %>
-    <%= f.input :description %>
     <%= f.input :weight %>
     <%= f.input :price %>
-    <%= f.input :photo, required: true, autofocus: true %>
-    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.input :description %>
     <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>
 </div>

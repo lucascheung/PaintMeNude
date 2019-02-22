@@ -1,6 +1,8 @@
 class NudiesController < ApplicationController
   before_action :set_nudie, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_after_action :verify_authorized, only: [:male_filter, :female_filter]
+
 
   def index
     @nudies = policy_scope(Nudie)
@@ -44,6 +46,22 @@ class NudiesController < ApplicationController
   def destroy
     @nudie.destroy
     redirect_to nudies_path
+  end
+
+  def male_filter
+    @nudies = policy_scope(Nudie).joins(:user).where(users: { gender: "Male"})
+    respond_to do |format|
+      format.html { redirect_to nudies_path(@nudies) }
+      format.js
+    end
+  end
+
+  def female_filter
+    @nudies = policy_scope(Nudie).joins(:user).where(users: { gender: "Female"})
+    respond_to do |format|
+      format.html { redirect_to nudies_path(@nudies) }
+      format.js
+    end
   end
 
   private

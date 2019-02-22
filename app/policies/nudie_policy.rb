@@ -21,6 +21,14 @@ class NudiePolicy < ApplicationPolicy
     current_user_or_admin?
   end
 
+  def male_filter?
+    return true
+  end
+
+  def female_filter?
+    return true
+  end
+
   private
 
   def current_user_or_admin?

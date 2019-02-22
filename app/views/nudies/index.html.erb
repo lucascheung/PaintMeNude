@@ -2,20 +2,11 @@
 <div class="index-main">
   <div class="index-container">
     <h1>Canvases</h1>
+    <%= link_to "Male", male_nudies_path, method: :get, remote: true, class: "btn btn-primary" %>
+    <%= link_to "Female", female_nudies_path, method: :get, remote: true, class: "btn btn-primary" %>
     <div class="card-container">
-      <div class="row">
-        <% @nudies.each do |nudie| %>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <%= link_to nudy_path(nudie) do %>
-              <div class="nudie-card">
-                <div class="nudie-card-photo" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 80%, rgba(0,0,0,0.8) 100%), url(<%= cl_image_path nudie.user.photo.url(:index_profile) %>);"></div>
-                <div class="nudie-card-content">
-                  <%= "#{nudie.user.first_name}, #{nudie.user.age}" %>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
+      <div id="gender_filter" class="row">
+        <%= render 'index_cards' %>
       </div>
     </div>
   </div>

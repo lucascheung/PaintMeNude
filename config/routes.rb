@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:new, :create, :index, :destroy, :show]
   get 'design', to: 'pages#design'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'male_nudies', to: 'nudies#male_filter', as: :male_nudies
+  get 'female_nudies', to: 'nudies#female_filter', as: :female_nudies
 end

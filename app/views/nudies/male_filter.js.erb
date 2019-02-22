@@ -1,0 +1,12 @@
+function filterMale(nudiesHTML) {
+  const nudie_cards = document.getElementById('gender_filter');
+  if (nudie_cards.style.display === "none") {
+    nudie_cards.style.display = "block";
+  } else {
+    nudie_cards.style.display = "none";
+  }
+  nudie_cards.innerHTML = nudiesHTML;
+}
+
+filterMale('<%= j render "nudies/index_cards", nudies: @nudies %>');
+
