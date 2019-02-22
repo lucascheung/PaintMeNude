@@ -57,6 +57,11 @@
     background-color: #78130b;
     border: 2px solid #78130b;
   }
+
+  &.fixed {
+    width: 350px;
+    text-align: center;
+  }
   &:hover {
     color: white;
     background-color: #e63123;
