@@ -1,17 +1,17 @@
-<h3>You are being painted by</h3>
 <table style="width:100%">
   <tr>
-    <th>Painter</th>
+    <th colspan='2'>Painter</th>
     <th>Date</th>
     <th>Location</th>
   </tr>
   <%@user.nudie.appointments.each do |appointment| %>
     <% if appointment.nudie.user == current_user %>
       <tr>
-        <td><%= appointment.user.first_name %></td>
+        <td width='45px'><%= cl_image_tag appointment.user.photo.url(:avatar) %></td>
+        <td width='100px'><%= appointment.user.first_name %></td>
         <td><%= appointment.appointment_date.strftime("%d %B") %></td>
         <td><%= appointment.location %></td>
-        <td><%= link_to 'Cancel', nudy_appointment_path(appointment.nudie_id, appointment), :method => 'delete'%></td>
+        <td><%= link_to 'Cancel', nudy_appointment_path(appointment.nudie_id, appointment), :method => 'delete', class:'btn-cancel'%></td>
       </tr>
     <% end %>
   <% end %>

@@ -6,8 +6,12 @@
   </tr>
   <%@user.appointments.each do |appointment| %>
     <tr>
-      <td width='45px'><%= cl_image_tag appointment.nudie.user.photo.url(:avatar) %></td>
-      <td><%= appointment.nudie.user.first_name %></td>
+      <td width='45px'>
+        <%= link_to nudy_path(appointment.nudie) do %>
+          <%= cl_image_tag appointment.nudie.user.photo.url(:avatar) %>
+        <% end %>
+      </td>
+      <td width='100px'><%= appointment.nudie.user.first_name %></td>
       <td><%= appointment.appointment_date.strftime("%d %B") %></td>
       <td><%= appointment.location %></td>
       <td><%= link_to 'Cancel', nudy_appointment_path(appointment.nudie_id, appointment), :method => 'delete', class: 'btn-cancel'%></td>
