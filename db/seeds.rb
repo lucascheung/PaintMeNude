@@ -16,11 +16,11 @@ all_users = []
 9.times.each_with_index do |idx|
   first_name = Faker::Name.female_first_name
   last_name = Faker::Name.last_name
-  email = "#{first_name}.#{last_name}@#{Faker::Hipster.word}.com"
+  email = "#{first_name}.#{last_name}@gmail.com"
   location = Faker::Address.street_address
   gender = "Female"
   age = rand(18...28)
-  username = Faker::Hipster.word + "_" + Faker::Hipster.word + rand(1..99).to_s
+  username = "#{first_name}#{last_name}"
   weight = rand(40..60)
   price = rand(0..200)
   description = Faker::Quote.most_interesting_man_in_the_world.gsub("HIS", "HER").gsub("He", "She").gsub(" he", " she").gsub("his", "her").gsub("His", "Her")
@@ -41,11 +41,11 @@ end
 6.times.each_with_index do |idx|
   first_name = Faker::Name.male_first_name
   last_name = Faker::Name.last_name
-  email = "#{first_name}.#{last_name}@#{Faker::Hipster.word}.com"
+  email = "#{first_name}.#{last_name}@gmail.com"
   location = Faker::Address.street_address
   gender = "Male"
   age = rand(18...28)
-  username = Faker::Hipster.word + "_" + Faker::Hipster.word + rand(1..99).to_s
+  username = "#{first_name}#{last_name}"
   weight = rand(40..60)
   price = rand(0..200)
   description = Faker::Quote.most_interesting_man_in_the_world
