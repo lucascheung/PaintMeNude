@@ -3,9 +3,10 @@
   position: relative;
   border: 5px solid white;
   width: 260px;
-  transition: 0.2s ease all;
+  transition: 0.4s ease all;
   &:hover {
-    transform: translateY(-5px)
+    transform: translateY(-5px);
+    font-size: 26px;
   }
 
 }

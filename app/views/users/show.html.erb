@@ -17,6 +17,7 @@
   <%= link_to edit_user_registration_path, class:'btn-red small dark' do %>
     <i class="far fa-edit"></i> Edit Profile
   <% end %>
+
   <div class="appointments">
     <h3>You are painting...</h3>
     <% if @user.appointments.present? %>
@@ -25,15 +26,17 @@
       <p>You have no upcoming painting appointments</p>
     <% end %>
     <br>
-    <h3>You are being painted by...</h3>
     <% if @user.nudie.present? %>
+      <h3>You are being painted by...</h3>
       <% if @user.nudie.appointments.present? %>
         <%= render 'canvas_show' %>
       <% else %>
         <p>You have no upcoming canvas appointments</p>
       <% end %>
     <% else %>
-      <%= link_to "Become a nudie", new_nudy_path, class:'btn btn-primary'%>
+      <%= link_to new_nudy_path(current_user), class:'btn-red small dark' do %>
+        <i class="fas fa-plus"></i> Become a Canvas
+      <% end %>
     <% end %>
   </div>
 </div>
