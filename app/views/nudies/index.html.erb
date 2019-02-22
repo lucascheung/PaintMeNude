@@ -2,11 +2,11 @@
 <div class="index-main">
   <div class="index-container">
     <h1>Canvases</h1>
-    <%= link_to "Male", male_nudies_path, method: :get, remote: true, class: "btn btn-primary" %>
-    <%= link_to "Female", female_nudies_path, method: :get, remote: true, class: "btn btn-primary" %>
+    <%= link_to "Male", male_nudies_path, method: :get, remote: true, class: "btn-red small",  id: "male-btn" %>
+    <%= link_to "Female", female_nudies_path, method: :get, remote: true, class: "btn-red small", id: "female-btn" %>
     <div class="card-container">
-      <div id="gender_filter" class="row">
-        <%= render 'index_cards' %>
+      <div id="gender_filter" class="row" data-male-filter="false" data-female-filter="false" >
+        <%= render 'index_cards', nudies: @nudies %>
       </div>
     </div>
   </div>

@@ -49,7 +49,6 @@ class NudiesController < ApplicationController
   end
 
   def male_filter
-    @nudies = policy_scope(Nudie).joins(:user).where(users: { gender: "Male"})
     respond_to do |format|
       format.html { redirect_to nudies_path(@nudies) }
       format.js
@@ -57,7 +56,11 @@ class NudiesController < ApplicationController
   end
 
   def female_filter
-    @nudies = policy_scope(Nudie).joins(:user).where(users: { gender: "Female"})
+    if @female_filtered
+      @nudies = policy_scope(Nudie)
+    else
+      @nudies = policy_scope(Nudie).joins(:user).where(users: { gender: "Female"})
+    end
     respond_to do |format|
       format.html { redirect_to nudies_path(@nudies) }
       format.js

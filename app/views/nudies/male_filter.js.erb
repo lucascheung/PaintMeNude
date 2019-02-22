@@ -1,12 +1,23 @@
 function filterMale(nudiesHTML) {
   const nudie_cards = document.getElementById('gender_filter');
-  if (nudie_cards.style.display === "none") {
-    nudie_cards.style.display = "block";
-  } else {
-    nudie_cards.style.display = "none";
-  }
   nudie_cards.innerHTML = nudiesHTML;
 }
+function checkMaleFilter() {
+  const nudieCards = document.getElementById('gender_filter');
+  const maleFilterApplied = nudieCards.dataset.maleFilter === "true";
+  if (maleFilterApplied) {
+    nudieCards.dataset.maleFilter = "false";
+  } else {
+    nudieCards.dataset.maleFilter = "true";
+    let maleBtn = document.getElementById("male-btn").style
+  }
+  return maleFilterApplied;
+}
 
-filterMale('<%= j render "nudies/index_cards", nudies: @nudies %>');
+if (checkMaleFilter()) {
+  filterMale('<%= j render "nudies/index_cards", nudies: Nudie.all %>');
+} else {
+  filterMale('<%= j render "nudies/index_cards", nudies: Nudie.joins(:user).where(users: { gender: "Male"}) %>');
+}
+
 
