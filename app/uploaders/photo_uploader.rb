@@ -15,6 +15,6 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
   version :show_profile do
-    cloudinary_transformation width: 325, height: 390, crop: :fill, radius: 4
+    cloudinary_transformation width: 325, height: 390, crop: :fill, radius: 4, gravity: :face
   end
 end
