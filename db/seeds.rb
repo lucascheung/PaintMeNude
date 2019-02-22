@@ -22,8 +22,8 @@ all_users = []
   age = rand(18...28)
   username = "#{first_name}#{last_name}"
   weight = rand(40..60)
-  price = rand(0..200)
-  description = Faker::Quote.most_interesting_man_in_the_world.gsub("HIS", "HER").gsub("He", "She").gsub(" he", " she").gsub("his", "her").gsub("His", "Her")
+  price = rand(200..800)
+  description = Faker::Quote.most_interesting_man_in_the_world.gsub("HIS", "HER").gsub("He", "She").gsub(" he", " she").gsub("his", "her").gsub("His", "Her").gsub(" him", " her")
   password = 100000
   url = "https://res.cloudinary.com/dcteumtl0/image/upload/v1550763608/hotgirl#{idx+1}.jpg"
   new_user = User.new(username:username, email:email, password:password)
@@ -46,7 +46,7 @@ end
   gender = "Male"
   age = rand(18...28)
   username = "#{first_name}#{last_name}"
-  weight = rand(40..60)
+  weight = rand(60..100)
   price = rand(0..200)
   description = Faker::Quote.most_interesting_man_in_the_world
   password = 100000
@@ -79,14 +79,14 @@ lucas.save!
 
 kristian = User.create!(username: "kristian", first_name: "Kristian", last_name:"Soelling", location:"Copenhagen", gender: "Male", age: 27, email:"kristian@gmail.com", password: 111111)
 kristian.remote_photo_url = "https://res.cloudinary.com/dcteumtl0/image/upload/v1550591281/kristian.jpg"
-kristian_n = Nudie.create!(weight:200, price:8000, description: "Looking to make a quick buck", user:kristian)
+kristian_n = Nudie.create!(weight:93, price:8000, description: "Looking to make a quick buck", user:kristian)
 kristian.admin = true
 kristian.save!
 
 max = User.create!(username: "max", first_name: "Max", last_name:"Glasmacher", location:"Berlin", gender: "Male", age: 18, email:"max@gmail.com", password: 111111)
 max.remote_photo_url = "https://res.cloudinary.com/dcteumtl0/image/upload/v1550591281/max.jpg"
 max.save!
-max_n = Nudie.create!(weight:200, price:8000, description: "Please bring tweezers for managing my sensitive genitals", user:max)
+max_n = Nudie.create!(weight:353, price:1, description: "Please bring tweezers for managing my sensitive genitals", user:max)
 
 # Kristian's test code for assigning nudies to users automatically
 # User.all.each_with_index do |idx_user|

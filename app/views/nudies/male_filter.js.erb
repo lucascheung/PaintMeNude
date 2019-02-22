@@ -5,11 +5,17 @@ function filterMale(nudiesHTML) {
 function checkMaleFilter() {
   const nudieCards = document.getElementById('gender_filter');
   const maleFilterApplied = nudieCards.dataset.maleFilter === "true";
+  let maleBtn = document.getElementById("male-btn")
   if (maleFilterApplied) {
     nudieCards.dataset.maleFilter = "false";
+    maleBtn.className = 'btn-red small';
+    maleBtn.style.textDecoration = "none"
+    maleBtn.style.color = "white"
   } else {
     nudieCards.dataset.maleFilter = "true";
-    let maleBtn = document.getElementById("male-btn").style
+    maleBtn.className = "btn-red small super-dark"
+    maleBtn.style.textDecoration = "none";
+    maleBtn.style.color = "white"
   }
   return maleFilterApplied;
 }
