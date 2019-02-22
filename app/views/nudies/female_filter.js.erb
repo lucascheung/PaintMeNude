@@ -1,0 +1,20 @@
+function filterFemale(nudiesHTML) {
+  const nudie_cards = document.getElementById('gender_filter');
+  nudie_cards.innerHTML = nudiesHTML;
+}
+function checkFemaleFilter() {
+  const nudieCards = document.getElementById('gender_filter');
+  const femaleFilterApplied = nudieCards.dataset.femaleFilter === "true";
+  if (femaleFilterApplied) {
+    nudieCards.dataset.femaleFilter = "false";
+  } else {
+    nudieCards.dataset.femaleFilter = "true";
+  }
+  return femaleFilterApplied;
+}
+
+if (checkFemaleFilter()) {
+  filterFemale('<%= j render "nudies/index_cards", nudies: Nudie.all %>');
+} else {
+  filterFemale('<%= j render "nudies/index_cards", nudies: Nudie.joins(:user).where(users: { gender: "Female"}) %>');
+}
