@@ -41,18 +41,41 @@
   display: flex;
 }
 
-.btn-paint {
+.btn-red {
   color: white;
   border: 2px solid #ad0f03;
   padding: 10px 50px;
   text-decoration: none;
   border-radius: 5px;
   background-color: #ad0f03;
+  transition: 0.3s ease all;
+  &.small {
+    padding: 8px 25px;
+  }
+
+  &.dark {
+    background-color: #78130b;
+    border: 2px solid #78130b;
+  }
   &:hover {
     color: white;
     background-color: #e63123;
     text-decoration: none;
     border: 2px solid #e63123;
+    &.dark {
+      background-color: #ad0f03;
+      border: 2px solid #ad0f03;
+    }
   }
 }
+
+.btn-cancel {
+  color: #f38a82;
+  text-decoration: none;
+  &:hover {
+    color: #e63123;
+    text-decoration: none;
+  }
+}
+
 
