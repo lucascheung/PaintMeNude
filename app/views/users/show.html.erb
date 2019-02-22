@@ -2,31 +2,30 @@
 
 <div class="show-container">
   <div class="profile-container">
-    <% if !@user.first_name.present? || !@user.last_name.present? %>
-      <h2>Please fill in your personal information</h2>
-    <% end %>
 
-    <h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
     <div class="profile-content">
       <%= cl_image_tag @user.photo.url(:show_profile), alt: "alttext"%>
       <div class="show-profile-text">
-        <h2><%= @user.location%></h2>
-        <h2><%= @user.age %></h2>
-        <h2><%= @user.gender %></h2>
+        <h2><%= "#{@user.first_name} #{@user.last_name}" %></h2>
+        <h3><%= @user.location%></h3>
+        <h3><%= @user.age %></h3>
+        <h3><%= @user.gender %></h3>
       </div>
     </div>
   </div>
 
-    <%= link_to "Edit profile", edit_user_registration_path, class:'btn btn-primary'%>
-
-    <h2>Painting appointments</h2>
+  <%= link_to edit_user_registration_path, class:'btn-red small dark' do %>
+    <i class="far fa-edit"></i> Edit Profile
+  <% end %>
+  <div class="appointments">
+    <h3>You are painting...</h3>
     <% if @user.appointments.present? %>
       <%= render 'painter_show' %>
     <% else %>
       <p>You have no upcoming painting appointments</p>
     <% end %>
-
-    <h2>Canvas appointments</h2>
+    <br>
+    <h3>Who is painting you?</h3>
     <% if @user.nudie.present? %>
       <% if @user.nudie.appointments.present? %>
         <%= render 'canvas_show' %>
@@ -36,4 +35,5 @@
     <% else %>
       <%= link_to "Become a nudie", new_nudy_path, class:'btn btn-primary'%>
     <% end %>
+  </div>
 </div>
