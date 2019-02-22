@@ -1,8 +1,17 @@
-<div class="form-container">
-  <h3 class="text-center">Price per experience: <b><%= @nudie.price %></b></h3>
-  <%= simple_form_for([@nudie, @appointment]) do |f| %>
-    <%= f.input :location %>
-   <%= f.input :appointment_date, as: :string, input_html: {class: "datepicker"} %>
-    <%= f.button :submit, "Request booking", class: "btn btn-primary" %>
-  <% end %>
+<div class="show-container">
+  <h2>Booking</h2>
+  <div class="booking-container">
+    <%= cl_image_tag @nudie.user.photo.url(:show_profile), alt: "alttext" %>
+    <div class="booking-content">
+      <p>Canvas: <%= "#{@nudie.user.first_name} #{@nudie.user.last_name}" %></p>
+      <p>Price: $<%= @nudie.price %></p>
+      <%= simple_form_for([@nudie, @appointment]) do |f| %>
+        <%= f.input :location %>
+       <%= f.input :appointment_date, as: :string, input_html: {class: "datepicker"} %>
+        <%= f.button :submit, "Request booking", class: "btn-red" %>
+      <% end %>
+    </div>
+
+  </div>
+
 </div>
